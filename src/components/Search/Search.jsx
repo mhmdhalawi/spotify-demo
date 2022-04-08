@@ -26,7 +26,7 @@ const Search = () => {
       style={{
         transform: `${search ? 'translateY(0px)' : 'translateY(300px) '}`,
         transition: 'all 0.25s ease-in',
-        marginBottom: `${search ? '70px' : '370px'}`,
+        marginBottom: `${search ? '70px' : '350px'}`,
       }}
     >
       <Grid.Col md={4} style={{ margin: 0 }}>
