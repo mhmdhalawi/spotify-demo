@@ -1,15 +1,12 @@
-import React from 'react';
-
-import { Group, Text, Badge, Button } from '@mantine/core';
+import { Card as MantineCard, Image, Text, Badge, Button, Group } from '@mantine/core';
 
 export default function Card() {
   return (
-    <div>
-      <Card shadow='sm' p='lg'>
-        <Card.Section>
-          {/* <Image src='./image.png' height={160} alt='Norway' /> */}
-          <h1>Image Here</h1>
-        </Card.Section>
+    <div style={{ width: 340 }}>
+      <MantineCard shadow='sm' p='lg'>
+        <MantineCard.Section>
+          <Image src='./image.png' height={160} alt='Norway' />
+        </MantineCard.Section>
 
         <Group position='apart' style={{ marginBottom: 5, marginTop: '20px' }}>
           <Text weight={500}>Norway Fjord Adventures</Text>
@@ -26,7 +23,7 @@ export default function Card() {
         <Button variant='light' color='blue' fullWidth style={{ marginTop: 14 }}>
           Book classic tour now
         </Button>
-      </Card>
+      </MantineCard>
     </div>
   );
 }
