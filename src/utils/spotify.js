@@ -3,7 +3,7 @@ export const authEndpoint = 'https://accounts.spotify.com/authorize';
 const redirectUri =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000/artists'
-    : 'https://spotify-work-clone.netlify.app/artists';
+    : 'https://spotify-work-clone.vercel.app/artists';
 
 const clientId = '7bdc5f0fb9fa429c8e412f58763ced3f';
 
