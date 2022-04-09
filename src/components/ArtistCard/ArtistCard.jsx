@@ -1,7 +1,7 @@
 import { Card as MantineCard, Image, Text, Stack, Group } from '@mantine/core';
 import { Link } from 'react-router-dom';
 
-import { AiFillStar } from 'react-icons/ai';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
 import StaticImage from '../../assets/img-placeholder.avif';
 
@@ -21,6 +21,11 @@ export default function ArtistCard({ artist }) {
     starsArray.push(i);
   }
 
+  const emptyStarsArray = [];
+  for (let i = 0; i < 5 - starsArray.length; i++) {
+    emptyStarsArray.push(i);
+  }
+
   return (
     <Link to={id} style={{ width: 300, marginBlock: 20, marginInline: 10 }}>
       <MantineCard shadow='sm' p='lg'>
@@ -38,7 +43,10 @@ export default function ArtistCard({ artist }) {
 
           <Group style={{ color: 'grey', marginTop: 30, gap: 0 }}>
             {starsArray.map((_, i) => (
-              <AiFillStar key={i} size={20} />
+              <AiFillStar key={i} size={20} color={'#1DB954'} />
+            ))}
+            {emptyStarsArray.map((_, i) => (
+              <AiOutlineStar key={i} size={20} color={'#1DB954'} />
             ))}
           </Group>
         </Stack>
