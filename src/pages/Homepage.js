@@ -1,3 +1,4 @@
+import { SimpleGrid } from '@mantine/core';
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import ArtistCard from '../components/ArtistCard';
@@ -20,7 +21,23 @@ const Homepage = () => {
   return (
     <div>
       <Search />
-      <ArtistCard />
+      <SimpleGrid
+        cols={4}
+        spacing={10}
+        mx={30}
+        style={{ placeItems: 'center' }}
+        breakpoints={[
+          { maxWidth: 980, cols: 3, spacing: 'md' },
+          { maxWidth: 755, cols: 2, spacing: 'sm' },
+          { maxWidth: 600, cols: 1, spacing: 'sm' },
+        ]}
+      >
+        <ArtistCard />
+        <ArtistCard />
+        <ArtistCard />
+        <ArtistCard />
+        <ArtistCard />
+      </SimpleGrid>
 
       {/* <AlbumCard /> */}
     </div>

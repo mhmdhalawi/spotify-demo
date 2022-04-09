@@ -6,7 +6,7 @@ import StaticImage from '../../assets/img-placeholder.avif';
 
 export default function ArtistCard() {
   return (
-    <div style={{ width: 300 }}>
+    <div style={{ width: 300, marginBlock: 20, marginInline: 10 }}>
       <MantineCard shadow='sm' p='lg'>
         <MantineCard.Section>
           <Image src={StaticImage} height={210} alt='Norway' />
