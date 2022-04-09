@@ -2,20 +2,20 @@ import { SimpleGrid } from '@mantine/core';
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import ArtistCard from '../components/ArtistCard';
-// import AlbumCard from '../components/AlbumCard';
 import Search from '../components/Search';
 import { useStore } from '../store';
 
 const Homepage = () => {
   const { hash } = useLocation();
-  const { artists } = useStore();
+  const { artists, setAlbums } = useStore();
 
   // split hash to get access token
   const token = hash.split('#')[1].split('&')[0].split('=')[1];
 
   useEffect(() => {
     localStorage.setItem('accessToken', token);
-  }, [token]);
+    setAlbums([]);
+  }, [token, setAlbums]);
 
   return (
     <div>
@@ -37,8 +37,6 @@ const Homepage = () => {
           ))}
         </SimpleGrid>
       )}
-
-      {/* <AlbumCard /> */}
     </div>
   );
 };

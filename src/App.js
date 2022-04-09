@@ -3,7 +3,7 @@ import Homepage from './pages/Homepage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
-import Artist from './pages/Artist';
+import Albumpage from './pages/Albumpage';
 import Login from './pages/Login';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
           <Route index element={<Login />} />
           <Route path='artists'>
             <Route index element={<Homepage />} />
-            <Route path=':id' element={<Artist />} />
+            <Route path=':id' element={<Albumpage />} />
           </Route>
         </Route>
       </Routes>
