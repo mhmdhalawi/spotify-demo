@@ -6,8 +6,12 @@ import { GrFormClose } from 'react-icons/gr';
 
 import { useDebouncedValue } from '@mantine/hooks';
 
+import { searchArtist } from '../../helpers';
+import { useStore } from '../../store';
+
 const Search = () => {
   const [search, setSearch] = useState('');
+  const { setArtists } = useStore();
 
   const [debounced] = useDebouncedValue(search, 250);
 
@@ -16,8 +20,12 @@ const Search = () => {
   };
 
   useEffect(() => {
-    console.log({ debounced });
-  }, [debounced]);
+    if (debounced) {
+      searchArtist(debounced).then((artists) => {
+        setArtists(artists);
+      });
+    }
+  }, [debounced, setArtists]);
 
   return (
     <Grid
