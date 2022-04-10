@@ -5,7 +5,7 @@ import { api } from '../api';
 
 export const searchArtist = async (artist) => {
   const { data } = await api.get(`/search?q=artist:${artist}&type=artist`);
-  return data.artists.items;
+  return data.artists;
 };
 
 // spotify get an artist's album
@@ -13,5 +13,5 @@ export const searchArtist = async (artist) => {
 
 export const getArtistAlbums = async (artistId) => {
   const { data } = await api.get(`/artists/${artistId}/albums`);
-  return data.items;
+  return data;
 };

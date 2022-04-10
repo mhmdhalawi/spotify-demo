@@ -11,7 +11,6 @@ export default function AlbumCard({ album }) {
     release_date,
     external_urls: { spotify },
   } = album;
-  console.log({ album });
 
   const handlePreview = () => {
     window.open(spotify, '_blank');

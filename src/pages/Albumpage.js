@@ -15,8 +15,8 @@ export default function Artist() {
 
   useEffect(() => {
     getArtistAlbums(id).then((albums) => {
-      console.log(albums);
-      setAlbums(albums);
+      console.log({ albums });
+      setAlbums(albums.items);
     });
   }, [id, setAlbums]);
 

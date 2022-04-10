@@ -6,7 +6,6 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import StaticImage from '../../assets/img-placeholder.avif';
 
 export default function ArtistCard({ artist }) {
-  console.log({ artist });
   const {
     id,
     name,

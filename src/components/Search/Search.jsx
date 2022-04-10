@@ -22,7 +22,8 @@ const Search = () => {
   useEffect(() => {
     if (debounced) {
       searchArtist(debounced).then((artists) => {
-        setArtists(artists);
+        console.log({ artists });
+        setArtists(artists.items);
       });
     }
   }, [debounced, setArtists]);
