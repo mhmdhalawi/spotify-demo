@@ -13,7 +13,7 @@ export default function Login() {
 
   return (
     <Grid style={{ height: '100vh' }} m={0} justify='center' align='center'>
-      <Grid.Col span={3}>
+      <Grid.Col md={3}>
         <Button
           style={{
             height: '50px',

@@ -1,4 +1,4 @@
-import { SimpleGrid, Text } from '@mantine/core';
+import { Loader, SimpleGrid, Text } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
 
 import { useParams } from 'react-router-dom';
@@ -55,7 +55,7 @@ export default function Artist() {
           dataLength={albums.length}
           next={fetchData}
           hasMore={hasMore}
-          loader={<h4 style={{ textAlign: 'center', marginBlock: 20 }}>Loading...</h4>}
+          loader={<Loader size={25} color='#1DB954' />}
         >
           {albums.length > 0 && (
             <SimpleGrid

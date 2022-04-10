@@ -1,19 +1,14 @@
 import { TextInput, Grid } from '@mantine/core';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import { BiSearchAlt2 } from 'react-icons/bi';
 import { GrFormClose } from 'react-icons/gr';
 
-import { useDebouncedValue } from '@mantine/hooks';
-
 import { searchArtist } from '../../helpers';
 import { useStore } from '../../store';
 
-const Search = () => {
-  const [search, setSearch] = useState('');
-  const { setArtists } = useStore();
-
-  const [debounced] = useDebouncedValue(search, 250);
+const Search = ({ setTotal, debounced, search, setSearch }) => {
+  const { setArtists, clearArtists } = useStore();
 
   const clearSearch = () => {
     setSearch('');
@@ -22,11 +17,13 @@ const Search = () => {
   useEffect(() => {
     if (debounced) {
       searchArtist(debounced).then((artists) => {
-        console.log({ artists });
+        clearArtists();
         setArtists(artists.items);
+
+        setTotal(artists.total);
       });
     }
-  }, [debounced, setArtists]);
+  }, [debounced, setArtists, clearArtists, setTotal]);
 
   return (
     <Grid
@@ -43,12 +40,19 @@ const Search = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           size='lg'
+          style={{ border: '1px solid #1DB954', padding: '2px 10px', borderRadius: 4 }}
           placeholder='Search for an artist…'
+          variant='unstyled'
           rightSection={
             search ? (
-              <GrFormClose style={{ cursor: 'pointer' }} size={18} onClick={clearSearch} />
+              <GrFormClose
+                style={{ cursor: 'pointer' }}
+                color='#1DB954'
+                size={18}
+                onClick={clearSearch}
+              />
             ) : (
-              <BiSearchAlt2 size={18} />
+              <BiSearchAlt2 size={18} color='#1DB954' />
             )
           }
         />
