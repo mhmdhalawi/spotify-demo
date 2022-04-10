@@ -7,15 +7,15 @@ import { useStore } from '../store';
 
 const Homepage = () => {
   const { hash } = useLocation();
-  const { artists, setAlbums } = useStore();
+  const { artists, clearAlbums } = useStore();
 
   // split hash to get access token
   const token = hash.split('#')[1].split('&')[0].split('=')[1];
 
   useEffect(() => {
     localStorage.setItem('accessToken', token);
-    setAlbums([]);
-  }, [token, setAlbums]);
+    clearAlbums([]);
+  }, [token, clearAlbums]);
 
   return (
     <div>

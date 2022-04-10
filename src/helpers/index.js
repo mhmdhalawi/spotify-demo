@@ -15,3 +15,10 @@ export const getArtistAlbums = async (artistId) => {
   const { data } = await api.get(`/artists/${artistId}/albums`);
   return data;
 };
+// spotify get next page of album
+// https://api.spotify.com/v1/artists/{id}/albums?offset=0
+
+export const fetchNextPage = async (artistId, offset) => {
+  const { data } = await api.get(`/artists/${artistId}/albums?offset=${offset}`);
+  return data;
+};
