@@ -55,12 +55,7 @@ export default function Artist() {
           dataLength={albums.length}
           next={fetchData}
           hasMore={hasMore}
-          loader={<h4 style={{ textAlign: 'center' }}>Loading...</h4>}
-          endMessage={
-            <p style={{ textAlign: 'center' }}>
-              <b>Yay! You have seen it all</b>
-            </p>
-          }
+          loader={<h4 style={{ textAlign: 'center', marginBlock: 20 }}>Loading...</h4>}
         >
           {albums.length > 0 && (
             <SimpleGrid
